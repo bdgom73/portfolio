@@ -1,0 +1,107 @@
+@import "var.scss";
+.container{
+    font-family: 'Anton', sans-serif;
+    position: relative;
+    header{      
+        position:fixed;
+        top:0px;
+        width: 100%;
+        z-index: 9999;
+        height: 100px;
+        padding-bottom: 10px;
+        transition: all .3s ease-in-out; 
+        .header{  
+            max-width: 1200px;
+            height: 100%;
+            display: flex;
+            padding: 30px 10px 30px;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+        .title{
+            margin-top: -10px;
+            display: flex;
+            flex-direction: column;
+            font-size: 40px;
+            color:white;
+            span{
+                font-size: 30px;
+                text-align: right;
+            }
+        }
+        nav{
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            ul{
+                display: flex;
+                justify-content: flex-end;
+                a{
+                    display: block;
+                    font-size: 22px;
+                    margin-right: 15px;
+                    height: 100%;
+                    padding-bottom: 30px;
+                    margin-bottom: -2px;
+                    color:white;                   
+                }          
+                a:hover {
+                    color: rgba($color: #fff, $alpha: 0.78);
+                }
+            }
+        }
+    }
+}
+  .coting{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000000,0.33);
+  }
+@-webkit-keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .nextPage,.previousPage{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -30px;
+    right: 5px;
+    z-index: 20;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color:rgba(#ffffff,0.85);
+    transition: all .4s ;
+  }
+  .nextPage:hover,.previousPage:hover{
+      color: rgba(#fd7474,0.85);
+  }

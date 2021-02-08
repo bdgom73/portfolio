@@ -1,0 +1,418 @@
+@import "var.scss";
+.home_move{
+    position: absolute;
+    top:0;
+    cursor: pointer;
+    z-index: 9999;
+    color:#dadada;
+    font-size: 13px;
+}
+.home_move:hover{
+    color: #bd3030;
+}
+.reg_wrap{
+    width: 100%;
+    height: 100vh;
+    background-color: #fafafa;
+    color: black;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-width: 1200px;
+    position: relative;
+    .regH_underLine{
+        width: 100%;
+        border-bottom: 5px solid black;
+        position: absolute;
+        bottom: 0px;
+        padding: 5px;
+       
+    }
+    .regH_underLine:hover{
+        cursor: pointer;
+    }
+    .regH{
+        transition: all .6s ease-in-out;
+        width: 100%;
+        height: 120px;
+        min-width: 1200px;
+        display: flex;   
+        background-color: rgba(#000,0.8);
+        color:#fff;
+        position: fixed; 
+        .login-check{
+            position: absolute;
+            right: 0px;
+            bottom: 10px;
+            ul{
+                display: flex;
+                align-items: center;
+                font-family: '나눔고딕';
+                justify-content: center;
+                li:first-child{
+                    font-size: 13px;
+                    margin-right:30px;
+                    span{
+                        color:#d1df53;
+                    }
+                }
+                li:last-child{
+                    font-size: 8px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    background-color: yellow;
+                    margin-right: 10px;
+                    color:black;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+        .reg_header{
+            font-size: 30px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding: 5px 0px 5px 30px;
+            width: 100%;
+            .reg_logo{
+                cursor: pointer;
+                .n1{
+                    display: block;
+                }
+                .fl{
+                    color:#c73b3b;
+                }
+            }
+        }
+        .side_bar{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            .side_right{
+                
+            }
+            svg{
+                cursor: pointer;
+            }
+            .activeSide-bar{
+                ul{
+                    display: flex;
+                    margin-right: 10px;  
+                    align-items: center;
+                    li{
+                        padding: 10px;
+                        cursor: pointer;  
+                        font-size: 21px;
+                        font-weight: bold;
+                        color:#dddddd;
+                        a{
+                            color:#dddddd;
+                        }
+                    }
+                    li:first-child{
+                        margin-right: 5px;
+                    }
+                }
+               
+            }
+        }
+    }
+   
+}
+.signup_wrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:black;
+    justify-content: center;
+    .signup-page{
+        background: rgb(235, 235, 235); 
+        border-radius: 15px;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            margin-top: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+            border-radius: 15px;
+            background: rgb(235, 235, 235); 
+        }
+        form{
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;   
+            p{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+                padding: 0;
+                width: 100%;
+                label{
+                    margin: 5px 0;
+                }
+            }     
+        }
+        .warming{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 15px;
+            color:#ec250b;
+        }
+        input[type="text"],input[type="password"]{
+            padding:7px 0;
+            border: 0;
+            border-bottom: 2px solid black;
+            background-color: rgba(#000,0);
+            transition: all .3s;
+            width: 100%;
+            color: #c4c1c1;
+        }
+        input{
+            outline:none;
+        }
+        input[type="submit"]{
+            width: 100%;
+            height: 40px;
+            padding: 10px 0;
+            border: 0;
+            background-color: #2a52d3;
+            color :white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 35px;
+        }
+        input[type="submit"]:hover{         
+            background-color: #0d426d;
+
+        }
+    }
+}
+
+.Login_wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .Login-page{
+        background: rgb(235, 235, 235); 
+        border-radius: 15px;
+        width: 350px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        h1{
+            margin-top: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px 0;
+            margin-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            border-radius: 15px;
+            background: rgb(235, 235, 235); 
+        }
+    }
+    form{
+        margin-top: 20px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;   
+        p{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            width: 100%;
+            label{
+                margin: 5px 0;
+            }
+        }     
+    }
+    input[type="text"],input[type="password"]{
+        padding:0;
+        border: 0;
+        border-bottom: 2px solid black;
+        background-color: rgba(#000,0);
+        transition: all .3s;
+        width: 100%;
+        color: #c4c1c1;
+    }
+    input{
+        outline:none;
+    }
+    input[type="submit"]{
+        margin-top: 25px;
+        width: 100%;
+        height: 40px;
+        padding: 10px 0;
+        border: 0;
+        background-color: #2a52d3;
+        color :white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover{         
+        background-color: #0d426d;
+
+    }
+}
+
+.cmd_wrap::-webkit-scrollbar {
+    display: none;
+}
+.cmd_wrap{
+    color:white;
+    width: 100%;
+    min-width: 1200px;
+    z-index: 999;
+    background-color: rgba(32, 31, 31, 1);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    resize: both;
+    max-height: 600px;
+    min-height: 36px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    .cmd_top{
+        width: 100%;
+        height: 45px;
+        background-color: rgb(17, 13, 13);
+        display: flex;
+        align-items: center;
+        position: sticky; 
+        top:0;
+        span{
+            padding-left: 10px;
+            font-size: 22px;
+        }
+        span:last-child{
+            position: absolute;
+            right: 5px;
+            cursor: pointer;
+         
+        }
+       
+    }
+    .cmd_top:hover{
+        cursor:ns-resize;     
+    }.cmd_body{
+        scrollbar-width: none;
+        font-family: sans-serif;
+        padding: 5px;
+        line-height: 1.25em;
+    }
+}
+
+.reg-home_wrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ececec;
+    .reg_u{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 600px;
+        .reg_box{
+            cursor: pointer;
+            width: 293px;
+            height: 300px;
+            background-color: #0d426d;
+            overflow: hidden;
+            border: 2px solid black;
+            margin-bottom: 5px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 120% 120%;
+            transition: all .6s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span{
+                transition: all .6s ease-in-out;
+                font-size: 25px;
+                font-weight: bold;
+                color : black;
+            }
+        }
+        .reg_box:hover{
+            background-size: 500% 500%;
+            font-size: 40px;
+        }
+        .reg_box:hover span{ 
+            font-size: 40px;
+        }
+        .reg_box:nth-child(2n-1){
+            margin-right: 5px;
+        }
+    }
+}
+
+
+ @-webkit-keyframes slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+              transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+              filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+              transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+              transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+              filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+              transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+  }
+ 
+  
