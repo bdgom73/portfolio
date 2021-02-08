@@ -40,7 +40,7 @@ export default function Detail(props) {
     function onDeleteHandler() {
         const id = params.id;
         deleteBoardById(id);
-        history.push("/mi/adm/read");
+        history.push("/adm/read");
     }
     if(bd){
         return(
@@ -63,7 +63,7 @@ export default function Detail(props) {
                     isUser ? (
                         <div className="detail_control">
                             <button type="button" onClick={()=>{
-                                history.push(`/mi/adm/update/${bd.id}`)
+                                history.push(`/adm/update/${bd.id}`)
                             }}>UPDATE</button>
                             <button type="button" onClick={onDeleteHandler}>DELETE</button>
                         </div>
