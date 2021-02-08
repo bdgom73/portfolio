@@ -7,7 +7,7 @@ export default function Education(props) {
 
     return(
         <>
-        <div className="education_wrap" style={{backgroundImage:"url('/mp/edubg.jpg')"}}>   
+        <div className="education_wrap" style={{backgroundImage:"url('/edubg.jpg')"}}>   
             <div className="education" id="education">               
               <div className="edu1">
                     <div className="edu_middle">
@@ -70,7 +70,7 @@ function EduPageOne() {
                 <span className="edu_content">정보통신</span>
             </div> 
         </div>   
-        <img src="/mp/campus.jpg" alt="캠퍼스" id="edupageOneImg"/>   
+        <img src="/campus.jpg" alt="캠퍼스" id="edupageOneImg"/>   
         </>
     );
 }
@@ -96,7 +96,7 @@ function EduPageTwo() {
                 <span className="edu_content">경영정보</span>
             </div> 
         </div>   
-        <img src="/mp/high.jpg" alt="고등학교" id="edupageOneImg"/>   
+        <img src="/high.jpg" alt="고등학교" id="edupageOneImg"/>   
         </>
     );
 }

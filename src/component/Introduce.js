@@ -5,7 +5,7 @@ export default function Introduce(props){
     const [onoff,setOnOff] = useState(false)
     const [screen, setScreen] = useState({backgroundColor : "black"});
     const [screenWrap, setScreenWrap] = useState({
-        opacity : 0.95,backgroundImage:"url('/mp/screen.png')",
+        opacity : 0.95,backgroundImage:"url('/screen.png')",
         animation: "slide-in-bck-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940)"});
     const [op,setOp] =useState({display:"flex"})
     const [page,setPage] = useState(false);
@@ -19,7 +19,7 @@ export default function Introduce(props){
     return(
         <>
         
-            <div className="introduce_wrap"  style={{backgroundImage : "url('/mp/introbg.jpg')"}}>
+            <div className="introduce_wrap"  style={{backgroundImage : "url('/introbg.jpg')"}}>
             <div className="coting"></div>
             <div className="screen">
                 <BrowserBody/> 
@@ -129,7 +129,7 @@ function BrowserProfile() {
         <>
             <div className="browser_body-title">Kim IlJOONG Profile</div>
             <div className="browser_content">
-                <img src="/mp/noimage.png" alt="photo"/>
+                <img src="/noimage.png" alt="photo"/>
                 <div className="me_wrap">
                     <div className="me_body">
                         <span className="me_name"><span>Name</span>김일중 ( Kim IlJOONG )</span>
@@ -181,17 +181,17 @@ function BrowserUseLanguage(props) {
                         <h1><span>Front</span>-end</h1>
                         <div className="me-lang-info">
                             <div className="me_front">          
-                                <img src="/mp/html.png" alt="html" title="HTML"/>
-                                <img src="/mp/css.png" alt="css" title="CSS"/>
-                                <img src="/mp/react.png" alt="React" title="REACT" className="imgplus"/>
+                                <img src="/html.png" alt="html" title="HTML"/>
+                                <img src="/css.png" alt="css" title="CSS"/>
+                                <img src="/react.png" alt="React" title="REACT" className="imgplus"/>
                             </div>  
                         </div>
                         <h1><span>Back</span>-end</h1>
                         <div className="me-lang-info">
                             <div className="me_front">          
-                                <img src="/mp/spring.png" alt="spring" title="spring"  style={f1}/>
-                                <img src="/mp/node.png" alt="node" title="node"  style={f2}/>
-                                <img src="/mp/db.png" alt="React" title="db" className="imgplus"  style={f3}/>
+                                <img src="/spring.png" alt="spring" title="spring"  style={f1}/>
+                                <img src="/node.png" alt="node" title="node"  style={f2}/>
+                                <img src="/db.png" alt="React" title="db" className="imgplus"  style={f3}/>
                             </div>   
                         </div>
                         <h2>
@@ -201,9 +201,9 @@ function BrowserUseLanguage(props) {
                         </h2>
                         <div className="me-lang-info">
                             <div className="me_front">          
-                                <img src="/mp/mysql.png" alt="mysql" title="mysql" style={b1} />
-                                <img src="/mp/mongo.png" alt="mongo" title="mongo" className="imgplus" style={b2}/>
-                                <img src="/mp/h2.jpg" alt="h2" title="h2" className="imgplus" style={b3}/>
+                                <img src="/mysql.png" alt="mysql" title="mysql" style={b1} />
+                                <img src="/mongo.png" alt="mongo" title="mongo" className="imgplus" style={b2}/>
+                                <img src="/h2.jpg" alt="h2" title="h2" className="imgplus" style={b3}/>
                             </div>   
                         </div>
                     </div>

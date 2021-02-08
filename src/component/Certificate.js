@@ -16,7 +16,7 @@ export default function Certificate(props) {
     const[pagemove2,setPagemove2] = useState(true)
     return(
         <>   
-        <div className="certificate_wrap" style={{backgroundImage:"url('/mp/office.jpg')"}}>
+        <div className="certificate_wrap" style={{backgroundImage:"url('/office.jpg')"}}>
             <div className="certificate">
                 <div className="card_wrap">
                     <div className="card">  
@@ -29,7 +29,7 @@ export default function Certificate(props) {
                                     title={"정보통신산업기사"}
                                     date={"2019.05.31"}
                                     issuer={"한국방송통신전파진흥원"}
-                                    src={"/mp/kbt.jpg"}
+                                    src={"/kbt.jpg"}
                                     page={page}
                                     onClick={()=>{
                                         if(page >= 0 && page < 2){
@@ -43,7 +43,7 @@ export default function Certificate(props) {
                                     title={"정보처리기능사"}
                                     date={"2017.03.29"}
                                     issuer={"한국산업인력공단"}
-                                    src={"/mp/noimage.png"}
+                                    src={"/noimage.png"}
                                     page={page}
                                     onClick={()=>{
                                         if(page >= 0 && page < 2){
@@ -58,7 +58,7 @@ export default function Certificate(props) {
                                     title={"워드프로세서"}
                                     date={"2014.10.31"}
                                     issuer={"대한상공회의소"}
-                                    src={"/mp/noimage.png"}
+                                    src={"/noimage.png"}
                                     page={page}
                                     onClick={()=>{
                                         if(page >= 0 && page < 2){
@@ -126,7 +126,7 @@ function Card(props) {
     return(                     
             <div className="cl_text" onClick={props.onClick}>
             <h1>취득 국가기술 자격증 현황</h1>
-            <img src="/mp/noimage.png" alt="avatars"/>
+            <img src="/noimage.png" alt="avatars"/>
             <ul>
                 <li>자격번호 : <span className="mosaic">#{(Math.round(Math.random()*100*100*100))}</span></li>
                 <li>자격종목 : <span>{props.title}</span></li>

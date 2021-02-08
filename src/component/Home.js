@@ -18,10 +18,10 @@ export default function Home(props){
           <div className="main_wrap">   
           <ScrollToTop/>
             <Switch>
-                <Route path="/mi" exact><Page page={0} footer={props.footer}/></Route>
-                <Route path="/mi/education"><Page page={1} footer={props.footer}/></Route>
-                <Route path="/mi/certificate"><Page page={2} footer={props.footer}/></Route>
-                <Route path="/mi/adm"><Reg/></Route>
+                <Route path="/" exact><Page page={0} footer={props.footer}/></Route>
+                <Route path="/education"><Page page={1} footer={props.footer}/></Route>
+                <Route path="/certificate"><Page page={2} footer={props.footer}/></Route>
+                <Route path="/adm"><Reg/></Route>
             </Switch>
 
           </div>
