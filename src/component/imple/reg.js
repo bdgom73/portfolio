@@ -97,7 +97,7 @@ export default function Reg(props) {
             
             <div className="regH" id="regH" style={f ? {top:"0px" } : {top:"-110px"}} >
                 <div className="regH_underLine" onClick={onClickHandler}></div>
-                <div className="home_move" onClick={()=>{history.push("/")}}>Home</div>
+                <div className="home_move" onClick={()=>{history.push("/mi")}}>Home</div>
                 <div className="login-check">
                         {
                             cookie.uid ? (
@@ -105,15 +105,14 @@ export default function Reg(props) {
                                 <ul>
                                     <li><span>{user.uid}</span>의 계정으로 로그인중입니다.</li>
                                     <li onClick={()=>{
-                                        removeCookie("uid",{path:"/"});  
-                                        window.location.reload(false);
+                                        removeCookie("uid",{path:"/mi"});  
                                     }}>LOGOUT</li>
                                 </ul>
                                 </>
                             ) : <><span>로그인 상태가 아닙니다.</span></>}
                     </div>  
                 <div className="reg_header">
-                    <div className="reg_logo" onClick={()=>{history.push("/adm"); setCmd([...cmd, `${new Date()} / 메인페이지로 이동합니다.`])}}>
+                    <div className="reg_logo" onClick={()=>{history.push("/mi/adm"); setCmd([...cmd, `${new Date()} / 메인페이지로 이동합니다.`])}}>
                         <span className="fl">S</span>ervice<span className="n1"><span className="fl">T</span>est</span>
                     </div>         
                 </div>
@@ -123,8 +122,8 @@ export default function Reg(props) {
                     {
                         side ? (<>
                             <ul> 
-                                <li title="회원가입"><NavLink to="/adm/signup" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 회원가입페이지로 이동합니다.`]);}}>Sign up</NavLink></li>
-                                <li title="로그인"><NavLink to="/adm/login" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 로그인페이지로 이동합니다.`]);}}>Login</NavLink></li>                    
+                                <li title="회원가입"><NavLink to="/mi/adm/signup" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 회원가입페이지로 이동합니다.`]);}}>Sign up</NavLink></li>
+                                <li title="로그인"><NavLink to="/mi/adm/login" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 로그인페이지로 이동합니다.`]);}}>Login</NavLink></li>                    
                             </ul>
                         </>) : (<></>)
                     }                   
@@ -138,13 +137,13 @@ export default function Reg(props) {
                 </div>
             </div>        
             <Switch>
-                <Route path="/adm" exact><RegHome cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/login"><Login cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/signup"><SignUp cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/read" exact><Read cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/create"><Create cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/read/:id"><Detail cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/update/:id"><Update cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm" exact><RegHome cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm/login"><Login cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm/signup"><SignUp cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm/read" exact><Read cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm/create"><Create cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm/read/:id"><Detail cmd={[cmd,setCmd]}/></Route>
+                <Route path="/mi/adm/update/:id"><Update cmd={[cmd,setCmd]}/></Route>
             </Switch>
             <div className="cmd_wrap" id="cmd" style={style} onMouseMove={(e)=>{
                 setHe((e.clientY))
@@ -180,15 +179,15 @@ function RegHome(props) {
         <div className="reg-home_wrap">
             <div className="reg_u">
                 <div className="reg_box" style={{backgroundImage:"url('/mp/login.png')"}} onClick={()=>{
-                    history.push("/adm/login");
+                    history.push("/mi/adm/login");
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 로그인페이지로 이동합니다.`]);
                 }}><span>Login</span></div>
                 <div className="reg_box" onClick={()=>{
-                    history.push("/adm/signup")
+                    history.push("/mi/adm/signup")
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 회원가입페이지로 이동합니다.`]);
                 }}><span>Sign Up</span></div>
                 <div className="reg_box" onClick={()=>{
-                    history.push("/adm/read")
+                    history.push("/mi/adm/read")
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 게시글 작성페이지로 이동합니다.`]);
                 }}><span>CRUD <br/> Test</span></div>
                 <div className="reg_box"><span>Does not exist.</span></div>

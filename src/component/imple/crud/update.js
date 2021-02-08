@@ -23,7 +23,7 @@ export default function Update(props) {
                 else setIsUser(false);
             }else{
                 alert("삭제되거나 존재되지않은 게시글입니다.");
-                history.push("/adm/read");
+                history.push("/mi/adm/read");
             }
         })
     }
@@ -50,7 +50,7 @@ export default function Update(props) {
             updated : new Date().format(new Date())
         }
         updateBoardById(ud,()=>{
-            history.push(`/adm/read/${bd.id}`)
+            history.push(`/mi/adm/read/${bd.id}`)
         });
       
     }
@@ -74,7 +74,7 @@ export default function Update(props) {
     }else{   
         return(
             <>
-            {history.push("/adm")}
+            {history.push("/mi/adm")}
             </>
         );
         

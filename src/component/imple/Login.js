@@ -19,8 +19,8 @@ export default function Login(props) {
                 if(confirmPassword(result.password, logininfo.pw)){
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 로그인성공`]);
                     const idx = AESEncrypt(result.id.toString(),true);
-                    setCookie('uid',idx,{path:"/"});
-                    history.push("/adm/read");
+                    setCookie('uid',idx,{path:"/mi"});
+                    history.push("/mi/adm/read");
                 }else{
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 비밀번호가 틀렸습니다.`])
                 }

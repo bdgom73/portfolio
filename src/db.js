@@ -32,10 +32,8 @@ export function insertSql(sql,arg,cb) {
 export function lastSqlId(cb) {
     db.transaction((tx)=>{
         tx.executeSql("select LAST_INSERT_ID()",[],(tx,result)=>{
-            console.log("안됨?")
             if(cb) cb(result);
         },(tx,result)=>{
-            console.log(" 에러임?"+tx,result);
         });
     })
 }
@@ -79,7 +77,6 @@ export function findById(tableName,id,cb) {
         from ${tableName} LEFT OUTER JOIN member on board.member_id= member.id  
         where board.id= ? ORDER BY board.id `,
         [id],function(tx,result){
-            console.log(result);
             const value = result.rows[0];
             cb(value);
         });
@@ -144,7 +141,6 @@ export function find({
 }
 
 export function updateBoardById(updateData,cb) { 
-    console.log(updateData);
     db.transaction((tx)=>{
         tx.executeSql(`
         UPDATE board 

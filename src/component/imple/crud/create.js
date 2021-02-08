@@ -22,23 +22,18 @@ export default function Create(props){
             const sql = "INSERT INTO board(title,content,created,updated,member_id) values(?,?,?,?,?)";
             const arg = [writeData.title , writeData.content,now.format(new Date()),now.format(new Date()),id];
             insertSql(sql,arg,(result)=>{
-                history.push(`/adm/read/${result}`)
+                history.push(`/mi/adm/read/${result}`)
             });
             
         }else{
             const sql = "INSERT INTO board(title,content,created,updated,write) values(?,?,?,?,?)";
             const arg = [writeData.title , writeData.content,now.format(new Date()),now.format(new Date()),writeData.writer];
             insertSql(sql,arg,(result)=>{
-                history.push(`/adm/read/${result}`)
+                history.push(`/mi/adm/read/${result}`)
             });
         }
         
     }
-
-    useEffect(()=>{
-        console.log(new Date().format(new Date()))
-    }  
-    ,[])
 
     const [tl,setTl] = useState({color:"black"})
     

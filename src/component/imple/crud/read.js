@@ -9,7 +9,6 @@ export default function Read(props) {
 
     function getAllReadDataList(){
         findJoinAll("board",(rs)=>{
-            console.log(rs);
             setReadData(rs)
         }) 
     }
@@ -36,7 +35,7 @@ export default function Read(props) {
                         readData.map((rd)=>{
                             return (
                                 <>
-                                 <tr key={rd.id} onClick={()=>{history.push(`/adm/read/${rd.id}/${rd.title}`)}}>
+                                 <tr key={rd.id} onClick={()=>{history.push(`/mi/adm/read/${rd.id}/${rd.title}`)}}>
                                     <td>{rd.id}</td>
                                     <td>{rd.title}</td>
                                     <td>{rd.uid ? rd.uid : rd.write ? rd.write : "" }</td>
@@ -50,7 +49,7 @@ export default function Read(props) {
                 </tbody>
             </table>
             <div className="table-btn_tool">
-                <button type="button" onClick={()=>{history.push("/adm/create")}}>CREATE</button>
+                <button type="button" onClick={()=>{history.push("/mi/adm/create")}}>CREATE</button>
             </div>
             </div>
         </div>

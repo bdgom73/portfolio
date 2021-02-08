@@ -28,10 +28,10 @@ export default function Header() {
               </div>
               <nav>
                   <ul>
-                      <NavLink to="/" exact activeStyle={{borderBottom:"2px solid red"}}><li>Introduce</li></NavLink>
-                      <NavLink to="/education" activeStyle={{borderBottom:"2px solid red"}}><li>Education</li></NavLink>
-                      <NavLink to="/certificate" activeStyle={{borderBottom:"2px solid red"}}><li>Certificate</li></NavLink>    
-                      <NavLink to="/adm" activeStyle={{borderBottom:"2px solid red"}}>Test</NavLink> 
+                      <NavLink to="/mi" exact activeStyle={{borderBottom:"2px solid red"}}><li>Introduce</li></NavLink>
+                      <NavLink to="/mi/education" activeStyle={{borderBottom:"2px solid red"}}><li>Education</li></NavLink>
+                      <NavLink to="/mi/certificate" activeStyle={{borderBottom:"2px solid red"}}><li>Certificate</li></NavLink>    
+                      <NavLink to="/mi/adm" activeStyle={{borderBottom:"2px solid red"}}>Test</NavLink> 
                   </ul>
               </nav>
               </div>

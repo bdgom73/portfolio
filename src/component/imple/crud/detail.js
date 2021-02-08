@@ -20,7 +20,6 @@ export default function Detail(props) {
                 const cid = cookie.uid;   
                 if(cid && result){
                     const xid = AESDecrypt(cid);
-                    console.log(xid === result.member_id)
                     if(xid === result.member_id) setIsUser(true);
                     else setIsUser(false);
                 }
@@ -41,7 +40,7 @@ export default function Detail(props) {
     function onDeleteHandler() {
         const id = params.id;
         deleteBoardById(id);
-        history.push("/adm/read");
+        history.push("/mi/adm/read");
     }
     if(bd){
         return(
@@ -64,7 +63,7 @@ export default function Detail(props) {
                     isUser ? (
                         <div className="detail_control">
                             <button type="button" onClick={()=>{
-                                history.push(`/adm/update/${bd.id}`)
+                                history.push(`/mi/adm/update/${bd.id}`)
                             }}>UPDATE</button>
                             <button type="button" onClick={onDeleteHandler}>DELETE</button>
                         </div>
