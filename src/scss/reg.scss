@@ -4,7 +4,7 @@
     top:0;
     cursor: pointer;
     z-index: 9999;
-    color:#dadada;
+   
     font-size: 13px;
 }
 .home_move:hover{
@@ -22,11 +22,9 @@
     position: relative;
     .regH_underLine{
         width: 100%;
-        border-bottom: 5px solid black;
         position: absolute;
         bottom: 0px;
-        padding: 5px;
-       
+        padding: 5px 0;
     }
     .regH_underLine:hover{
         cursor: pointer;
@@ -37,9 +35,7 @@
         height: 120px;
         min-width: 1200px;
         display: flex;   
-        background-color: rgba(#000,0.8);
-        color:#fff;
-        position: fixed; 
+        position: absolute; 
         .login-check{
             position: absolute;
             right: 0px;
@@ -52,9 +48,6 @@
                 li:first-child{
                     font-size: 13px;
                     margin-right:30px;
-                    span{
-                        color:#d1df53;
-                    }
                 }
                 li:last-child{
                     font-size: 8px;
@@ -105,10 +98,7 @@
                         cursor: pointer;  
                         font-size: 21px;
                         font-weight: bold;
-                        color:#dddddd;
-                        a{
-                            color:#dddddd;
-                        }
+                       
                     }
                     li:first-child{
                         margin-right: 5px;
@@ -373,6 +363,70 @@
     }
 }
 
+@media all and (max-height : 865px) {
+    .home_move{
+        color:#000000;
+    }
+    .regH{
+        background:rgba(0, 0, 0,0);
+        color : black;
+        .login-check{
+            li:first-child{
+                background-color: rgba(255, 255, 255,0.5);
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 5px;
+                span{
+                    color:#b90000;
+                }
+            }
+        }
+       
+    }
+    .regH_underLine{
+        border-bottom: 5px solid rgba(0,0,0,0);     
+    }
+    .activeSide-bar{
+        ul{
+            li{
+                color:#000000;
+                a{
+                    color:#000000;
+                }
+            }
+        }
+    }
+}
+@media all and (min-height : 864px){
+    .home_move{
+        color:#dadada;
+    }
+    .regH{
+        background-color: rgba(#000,0.8);
+        color:#fff;
+        .login-check{
+        li:first-child{
+            span{
+                color:#d1df53;
+            }
+        }
+    }
+    }
+    .regH_underLine{
+        border-bottom: 5px solid black;  
+    }
+    .activeSide-bar{
+        ul{
+            li{
+                color:#dddddd;
+                a{
+                    color:#dddddd;
+                }
+            }
+        }
+    }
+   
+}
 
  @-webkit-keyframes slide-in-blurred-right {
     0% {

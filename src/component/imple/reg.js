@@ -123,7 +123,8 @@ export default function Reg(props) {
                         side ? (<>
                             <ul> 
                                 <li title="회원가입"><NavLink to="/adm/signup" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 회원가입페이지로 이동합니다.`]);}}>Sign up</NavLink></li>
-                                <li title="로그인"><NavLink to="/adm/login" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 로그인페이지로 이동합니다.`]);}}>Login</NavLink></li>                    
+                                <li title="로그인"><NavLink to="/adm/login" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / 로그인페이지로 이동합니다.`]);}}>Login</NavLink></li>   
+                                <li title="CRUDTEST"><NavLink to="/adm/read" activeStyle={{color:"#c25353"}} onClick={()=>{setCmd([...cmd,`${new Date()} / CRUD-TEST페이지로 이동합니다.`]);}}>CRUDTEST</NavLink></li>                 
                             </ul>
                         </>) : (<></>)
                     }                   
@@ -182,15 +183,15 @@ function RegHome(props) {
                     history.push("/adm/login");
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 로그인페이지로 이동합니다.`]);
                 }}><span>Login</span></div>
-                <div className="reg_box" onClick={()=>{
+                <div className="reg_box" style={{backgroundImage:"url('/signup.jpg')"}} onClick={()=>{
                     history.push("/adm/signup")
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 회원가입페이지로 이동합니다.`]);
                 }}><span>Sign Up</span></div>
-                <div className="reg_box" onClick={()=>{
+                <div className="reg_box" style={{backgroundImage:"url('/crud.jpg')"}} onClick={()=>{
                     history.push("/adm/read")
                     props.cmd[1]([...props.cmd[0],`${new Date()} / 게시글 작성페이지로 이동합니다.`]);
                 }}><span>CRUD <br/> Test</span></div>
-                <div className="reg_box"><span>Does not exist.</span></div>
+                <div className="reg_box" style={{backgroundImage:"url('/exist.png')"}}><span>Does not exist.</span></div>
             </div>
         </div>
         </>
