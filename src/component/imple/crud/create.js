@@ -30,6 +30,7 @@ export default function Create(props){
             const arg = [writeData.title , writeData.content,now.format(new Date()),now.format(new Date()),writeData.writer];
             insertSql(sql,arg,(result)=>{
                 history.push(`/adm/read/${result}`)
+                props.cmd[1]([...props.cmd[0], `${new Date()} / ${result.id}번 게시글이 작성되었습니다.`]);
             });
         }
         

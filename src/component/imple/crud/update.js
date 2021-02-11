@@ -16,7 +16,7 @@ export default function Update(props) {
         const id = params.id;
         findById("board",id,(result)=>{
             setBd(result);
-            const cid = cookie.uid;   
+            const cid = cookie.uid;       
             if(cid && result){
                 const xid = AESDecrypt(cid);
                 if(xid === result.member_id) setIsUser(true);
@@ -50,7 +50,9 @@ export default function Update(props) {
             updated : new Date().format(new Date())
         }
         updateBoardById(ud,()=>{
+            props.cmd[1]([...props.cmd[0], `${new Date()} / ${bd.id}}번 게시글이 수정되었습니다.`]);
             history.push(`/adm/read/${bd.id}`)
+            
         });
       
     }

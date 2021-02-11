@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Login from "./Login";
 import { IoApps } from 'react-icons/io5';
 import { useCookies } from "react-cookie";
-import { findById,findMemberById } from "../../db";
+import { createTable, deleteBoardById, findById,findMemberById } from "../../db";
 import { AESDecrypt } from "../../crypto";
 import { NavLink, Route, Switch, useHistory } from "react-router-dom";
 import Read from "./crud/read";
@@ -86,11 +86,28 @@ export default function Reg(props) {
                     setUser(result || {});
                 })  
             }catch(error){
-                console.log(error.toString())
+                cmd.push(error.toString());
+                setCmd(cmd);
             }
         } 
     },[cookie])
 
+    const [mypage, setMypage] = useState(false);
+
+    const resetTableHandler = e=>{
+        e.preventDefault();
+        for(let i = 0 ; i < (e.target.length - 1) ; i++){
+            if(e.target[i].checked){
+                let sql = `DELETE FROM ${e.target[i].value}`
+                createTable(sql,[],()=>{
+                    cmd.push(`${new Date()} / ${e.target[i].value} 테이블이 초기화 되었습니다.`);
+                    setCmd(cmd)
+                    if(e.target[i].value === "member")
+                    removeCookie("uid",{path:"/"})
+                });      
+            }
+        }
+    }
     return(
         <>
         <div className="reg_wrap" >
@@ -103,7 +120,24 @@ export default function Reg(props) {
                             cookie.uid ? (
                                 <>
                                 <ul>
-                                    <li><span>{user.uid}</span>의 계정으로 로그인중입니다.</li>
+                                    <li>
+                                        <span onClick={()=>{setMypage(!mypage); console.log(mypage)}} className="userId">{user.uid}</span>의 계정으로 로그인중입니다.
+                                        {
+                                            mypage ? (
+                                                <>
+                                                    <div className="mypage_wrap">
+                                                        <div className="mypage">
+                                                            <form onSubmit={resetTableHandler}>
+                                                                <label><input type="checkbox" name="table" value="member"/>회원Table</label>
+                                                                <label><input type="checkbox" name="table" value="board"/>게시글Table</label> 
+                                                                <input type="submit" value="초기화"/>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            ) : <>2</>
+                                        }
+                                    </li>
                                     <li onClick={()=>{
                                         removeCookie("uid",{path:"/"});  
                                     }}>LOGOUT</li>
@@ -142,18 +176,18 @@ export default function Reg(props) {
                 <Route path="/adm/login"><Login cmd={[cmd,setCmd]}/></Route>
                 <Route path="/adm/signup"><SignUp cmd={[cmd,setCmd]}/></Route>
                 <Route path="/adm/read" exact><Read cmd={[cmd,setCmd]}/></Route>
-                <Route path="/adm/create"><Create cmd={[cmd,setCmd]}/></Route>
+                <Route path="/adm/create"><Create cmd={[cmd,setCmd]} offHeader={()=>{setf(false)}}/></Route>
                 <Route path="/adm/read/:id"><Detail cmd={[cmd,setCmd]}/></Route>
                 <Route path="/adm/update/:id"><Update cmd={[cmd,setCmd]}/></Route>
             </Switch>
             <div className="cmd_wrap" id="cmd" style={style} onMouseMove={(e)=>{
                 setHe((e.clientY))
             }}>
-            <div className="cmd_top" onMouseDown={onMouseDownHandler}>
-                <span>CMD</span>
+            <div className="cmd_top" onMouseDown={onMouseDownHandler}>              
                 <span onMouseDown={()=>{
                     setStyle({height:"36px",transition: "all .4s ease-in-out"});
                 }}>❌</span>
+                <span>CMD</span>
             </div>
             <div className="cmd_body">
             {

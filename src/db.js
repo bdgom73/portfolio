@@ -6,9 +6,11 @@ if(!!window.openDatabase){
 const db = openDatabase("introduce","1.0","My Introduce","2*1024*1024");
 
 
-export function createTable(sql) {
+export function createTable(sql,arg,cb) {
     db.transaction((tx)=>{
-        tx.executeSql(sql);
+        tx.executeSql(sql,arg,()=>{
+            if(cb) cb();
+        });
     })
 } 
 

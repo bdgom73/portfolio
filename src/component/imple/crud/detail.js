@@ -17,8 +17,9 @@ export default function Detail(props) {
         try{
             findById("board",id,(result)=>{
                 setBd(result);
-                const cid = cookie.uid;   
+                const cid = cookie.uid;  
                 if(cid && result){
+                    props.cmd[1]([...props.cmd[0], `${new Date()} / ${result.id}번 게시글 상세보기 페이지로 이동했습니다.`]);
                     const xid = AESDecrypt(cid);
                     if(xid === result.member_id) setIsUser(true);
                     else setIsUser(false);

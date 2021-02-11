@@ -24,7 +24,6 @@ function App(props) {
 
 
   useEffect(()=>{
-    // document.getElementsByClassName("education").id = "education"
     window.addEventListener("scroll",()=>{
       setScroll(window.scrollY);  
       setLastScroll(document.querySelector("html").scrollTop);

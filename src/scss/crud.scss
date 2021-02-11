@@ -87,7 +87,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-   
+    background-color: #e4e4e4;
     .detail{
        width: 100%;
        height: 100%;
@@ -176,6 +176,7 @@
 .create_wrap{
     width: 100%;
     height: 100%;
+    background-color: #fff;
     form{
        width: 100%;
        height: 100%;
