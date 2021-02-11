@@ -47,7 +47,72 @@
                 }
                 li:first-child{
                     font-size: 13px;
-                    margin-right:30px;
+                    margin-right:30px;   
+                    .mypage_wrap::before{
+                        content : "";
+                        position: absolute;
+                        top:-12px;
+                        left:15px;
+                        border-bottom: 15px solid;
+                        border-left: 10px solid rgba(#7c7c7c,0);
+                        border-right: 10px solid rgba(#7c7c7c,0); 
+                        color: #f1dcdc;
+
+                    }
+                    .mypage_wrap{
+                        position:absolute;
+                        background: #f1dcdc;
+                        top:40px;
+                        left: 0px;
+                        width:100%;
+                        padding:10px;
+                        max-width : 200px;
+                      
+                        border-radius:10px;
+                        .mypage{
+                            width: 100%;
+                            h1{
+                                display: block;
+                                font-size: 18px;
+                                font-weight: bold;
+                                text-align: center;
+                                margin-bottom: 20px;
+                                span{
+                                    font-size: 22px;
+                                    color: #cc5109;
+                                }
+                            }
+                            form{
+                                display:flex;
+                                flex-direction:column;
+                                align-items: flex-start;
+                                justify-content: center;
+                                .checkbox_wrap{
+                                    display:flex;     
+                                    flex-direction: column;      
+                                    color:#000000;
+                                    font-size: 15px;
+                                    font-weight: bold;
+                                    justify-content: center;
+                                    label{
+                                        display: flex;
+                                        align-items: center;
+                                    }
+                                }
+                                input[type="submit"]{                                
+                                    padding:5px 10px;
+                                    border-radius: 10px;
+                                    border:0;
+                                    background-color: #ecb6df;
+                                    font-weight: bold;
+                                    cursor: pointer;
+                                    display: block;
+                                    margin: 0 auto;
+                                    margin-top: 10px;
+                                }
+                            }    
+                        }
+                    }
                 }
                 li:last-child{
                     font-size: 8px;
@@ -116,6 +181,7 @@
     align-items: center;
     color:black;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 1);;
     .signup-page{
         background: rgb(235, 235, 235); 
         border-radius: 15px;
@@ -181,6 +247,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 35px;
+            margin-bottom:20px;
         }
         input[type="submit"]:hover{         
             background-color: #0d426d;
@@ -195,6 +262,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(#ffffff,1);
     justify-content: center;
     .Login-page{
         background: rgb(235, 235, 235); 
@@ -317,8 +385,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #ececec;
+    padding-top: 50px;
     .reg_u{
         display: flex;
         flex-wrap: wrap;
@@ -364,7 +433,7 @@
         color:#000000;
     }
     .regH{
-        background:rgba(0, 0, 0,0);
+        background:rgba(255, 255, 255,1);
         color : black;
         height: 60px;
         padding-top: 10px;
@@ -384,9 +453,9 @@
         }
        
     }
-    .regH_underLine{
-        border-bottom: 5px solid rgba(0,0,0,0);     
-    }
+    // .regH_underLine{
+    //     border-bottom: 5px solid rgba(0,0,0,0);     
+    // }
     .activeSide-bar{
         ul{
             li{

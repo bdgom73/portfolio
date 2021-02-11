@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Login from "./Login";
 import { IoApps } from 'react-icons/io5';
 import { useCookies } from "react-cookie";
-import { createTable, deleteBoardById, findById,findMemberById } from "../../db";
+import { createTable, deleteBoardById, findAll, findById,findMemberById } from "../../db";
 import { AESDecrypt } from "../../crypto";
 import { NavLink, Route, Switch, useHistory } from "react-router-dom";
 import Read from "./crud/read";
@@ -94,26 +94,79 @@ export default function Reg(props) {
 
     const [mypage, setMypage] = useState(false);
 
-    const resetTableHandler = e=>{
-        e.preventDefault();
+    function checkSize(e) {
+        let check = 0;
         for(let i = 0 ; i < (e.target.length - 1) ; i++){
             if(e.target[i].checked){
-                let sql = `DELETE FROM ${e.target[i].value}`
-                createTable(sql,[],()=>{
-                    cmd.push(`${new Date()} / ${e.target[i].value} 테이블이 초기화 되었습니다.`);
-                    setCmd(cmd)
-                    if(e.target[i].value === "member")
-                    removeCookie("uid",{path:"/"})
-                });      
+                check = check+1;
+            }
+        }
+        return check;
+    }
+
+    const resetTableHandler = e=>{
+        e.preventDefault();
+        const check = checkSize(e);
+        if(check > 0){
+            if(window.confirm("선택한 테이블 데이터가 전부 초기화됩니다. \n ( 정말로 삭제하시겠습니까? )")){
+                for(let i = 0 ; i < (e.target.length - 1) ; i++){
+                    if(e.target[i].checked){
+                        let sql = `DELETE FROM ${e.target[i].value}`
+                        createTable(sql,[],()=>{
+                            cmd.push(`${new Date()} / ${e.target[i].value} 테이블이 초기화 되었습니다.`);
+                            setCmd(cmd)
+                            if(e.target[i].value === "member")
+                            removeCookie("uid",{path:"/"})
+                        });      
+                    }
+                }
+            }
+        }else{
+            alert("선택된 테이블이 없습니다.");
+            cmd.push(`${new Date()} / 선택된 테이블이 없습니다.`);
+            setCmd(cmd)
+        }   
+    }
+    const onSubmitGetData = (e)=>{
+        e.preventDefault();
+        for(var i = 0 ; i < (e.target.length-1) ; i++){
+            if(e.target[i].checked && e.target[i].value !== "all"){
+                cmd.push(`${new Date()}---------\n`);
+                findAll(e.target[i].value,(value)=>{
+                    for(var k = 0 ; k < value.length ; k++){
+                        cmd.push(JSON.stringify(value[k] )+"\n");
+                    }
+                    setCmd(cmd);
+                })     
+            }else if(e.target[i].checked && e.target[i].value === "all"){
+                cmd.push(`${new Date()}---------\n`);
+                findAll("member",(value)=>{
+                    cmd.push(`MEMBER TABLE`);
+                    for(var k = 0 ; k < value.length ; k++){
+                        cmd.push(JSON.stringify(value[k]) +"\n");
+                    }
+                    setCmd(cmd);
+                    findAll("board",(value2)=>{
+                        cmd.push(`BOARD TABLE`);
+                        for(var k = 0 ; k < value2.length ; k++){
+                            cmd.push(JSON.stringify(value2[k]) +"\n");
+                        }
+                        setCmd(cmd);
+                    })
+                }) 
             }
         }
     }
+    const [iconColor,setIconColor] = useState("#ffffff");
+    useEffect(()=>{
+        if(window.innerHeight <= 864){
+            setIconColor("#222222");
+        }else{setIconColor("#ffffff")}
+    },[window.innerHeight])
     return(
         <>
         <div className="reg_wrap" >
-            
             <div className="regH" id="regH" style={f ? {top:"0px" } : {top:"-110px"}} >
-                <div className="regH_underLine" onClick={onClickHandler}></div>
                 <div className="home_move" onClick={()=>{history.push("/")}}>Home</div>
                 <div className="login-check">
                         {
@@ -127,15 +180,28 @@ export default function Reg(props) {
                                                 <>
                                                     <div className="mypage_wrap">
                                                         <div className="mypage">
+                                                            <h1><span>W</span>eb <span>D</span>ataBase <span>M</span>anagement</h1>
+                                                            <h2>테이블 초기화</h2>
                                                             <form onSubmit={resetTableHandler}>
-                                                                <label><input type="checkbox" name="table" value="member"/>회원Table</label>
-                                                                <label><input type="checkbox" name="table" value="board"/>게시글Table</label> 
-                                                                <input type="submit" value="초기화"/>
+                                                                <div className="checkbox_wrap">
+                                                                    <label><input type="checkbox" name="table" value="member"/>Member Table</label>
+                                                                    <label><input type="checkbox" name="table" value="board"/>Board Table</label> 
+                                                                </div>
+                                                                <input type="submit" value="reset"/>
+                                                            </form>
+                                                            <h2>값 가져오기</h2>
+                                                            <form onSubmit={onSubmitGetData}>
+                                                                <div className="checkbox_wrap">
+                                                                    <label><input type="radio" name="table" value="member"/>Member Data</label>
+                                                                    <label><input type="radio" name="table" value="board"/>Board Data</label>
+                                                                    <label><input type="radio" name="table" value="all"/>All Data</label> 
+                                                                </div>
+                                                                <input type="submit" value="DB값 가져오기"/>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </>
-                                            ) : <>2</>
+                                            ) : <></>
                                         }
                                     </li>
                                     <li onClick={()=>{
@@ -164,8 +230,11 @@ export default function Reg(props) {
                     }                   
                     </div>
                     <div className="side_right">
-                    <IoApps size={50} color={"#fff"}                   
-                        onClick={()=>{setSide(!side)}} 
+                    <IoApps size={50} color={iconColor}                   
+                        onClick={()=>{
+                            setSide(!side);
+                           
+                        }}  
                     />  
                     </div>   
                               
@@ -180,6 +249,7 @@ export default function Reg(props) {
                 <Route path="/adm/read/:id"><Detail cmd={[cmd,setCmd]}/></Route>
                 <Route path="/adm/update/:id"><Update cmd={[cmd,setCmd]}/></Route>
             </Switch>
+            
             <div className="cmd_wrap" id="cmd" style={style} onMouseMove={(e)=>{
                 setHe((e.clientY))
             }}>

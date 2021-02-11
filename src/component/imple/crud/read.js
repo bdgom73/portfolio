@@ -8,13 +8,15 @@ export default function Read(props) {
     const [readData, setReadData] = useState([]);
 
     function getAllReadDataList(){
-        props.cmd[1]([...props.cmd[0], `${new Date()} / CRUD TEST 페이지로 이동했습니다.`]);
+        
         findJoinAll("board",(rs)=>{
             setReadData(rs)
         }) 
     }
     useEffect(getAllReadDataList,[readData]);
-
+    useEffect(()=>{
+        props.cmd[1]([...props.cmd[0], `${new Date()} / CRUD TEST 페이지로 이동했습니다.`]);
+    },[])
     let history = useHistory();
 
     return(
